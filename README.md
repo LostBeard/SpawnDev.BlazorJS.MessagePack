@@ -85,10 +85,9 @@ namespace SpawnDev.BlazorJS.MessagePack.Demo.Pages
             // for this demo we are converting to hex and displaying it
             var bytes = uint8Array.ReadBytes();
             outgoing = Convert.ToHexString(bytes);
-            // demo decode
+            // decode using MessagePack to a string
             readback = MessagePack.Decode<string>(uint8Array);
         }
     }
 }
-
 ```
