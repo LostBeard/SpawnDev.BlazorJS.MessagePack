@@ -12,12 +12,18 @@
     <textarea style="width: 600px; word-wrap: break-word; white-space: normal;" @bind=@incoming></textarea>
     <button @onclick=@Submit>Pack</button>
 </div>
-<pre style="width: 600px; word-wrap: break-word; white-space: normal;">@((MarkupString)outgoing)</pre>
+<div>
+    <pre style="width: 600px; word-wrap: break-word; white-space: normal;">@((MarkupString)outgoing)</pre>
+</div>
+<div>
+    <pre style="width: 600px; word-wrap: break-word; white-space: normal;">@((MarkupString)readback)</pre>
+</div>
 
 @code {
     [Inject] BlazorJSRuntime JS { get; set; }
     string outgoing = "";
     string incoming = "";
+    string readback = "";
 
     void Submit()
     {
@@ -26,7 +32,7 @@
         // for this demo we are jsut converting to hex and displaying it
         var bytes = uint8Array.ReadBytes();
         outgoing = Convert.ToHexString(bytes);
+        // demo decode
+        readback = MessagePack.Decode<string>(uint8Array);
     }
-
 }
-
