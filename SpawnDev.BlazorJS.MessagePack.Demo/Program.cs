@@ -11,6 +11,8 @@ builder.RootComponents.Add<HeadOutlet>("head::after");
 // Add SpawnDev.BlazorJS interop
 builder.Services.AddBlazorJSRuntime();
 
+// Load the MessagePack Javascript library at startup (optional)
+// Could also be done in component or a service as needed.
 await MessagePack.Init();
 
 // Run app using BlazorJSRunAsync

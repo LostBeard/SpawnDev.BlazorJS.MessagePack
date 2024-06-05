@@ -1,4 +1,5 @@
 ﻿@page "/"
+@using SpawnDev.BlazorJS.JSObjects
 
 <PageTitle>SpawnDev.BlazorJS.MessagePack</PageTitle>
 
@@ -20,16 +21,16 @@
 </div>
 
 @code {
-    [Inject] BlazorJSRuntime JS { get; set; }
     string outgoing = "";
     string incoming = "";
     string readback = "";
 
     void Submit()
     {
-        using var uint8Array = MessagePack.Encode(incoming);
-        // the uint8Array could now be sent over WebRTC or saved to file
-        // for this demo we are jsut converting to hex and displaying it
+        // encode using MessagePack to a Uint8Array
+        using Uint8Array uint8Array = MessagePack.Encode(incoming);
+        // the Uint8Array could now be sent over WebRTC, saved to file, etc.
+        // for this demo we are converting to hex and displaying it
         var bytes = uint8Array.ReadBytes();
         outgoing = Convert.ToHexString(bytes);
         // demo decode
