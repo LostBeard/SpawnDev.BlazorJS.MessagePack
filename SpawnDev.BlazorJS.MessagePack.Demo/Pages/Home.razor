@@ -1,0 +1,38 @@
+﻿@page "/"
+
+<PageTitle>SpawnDev.BlazorJS.MessagePack</PageTitle>
+
+<h1>SpawnDev.BlazorJS.MessagePack</h1>
+
+<p>
+    This demo converts text to binary using MessagePack Javascript library and SpawnDev.BlazorJS.MessagePack
+</p>
+@* 
+   <div>
+       Role: @peerRole<br />
+       <button disabled="@(peer != null)" class="btn btn-primary" @onclick="@(()=>Init(true))">Create Initiator</button>
+       <button disabled="@(peer != null)" class="btn btn-primary" @onclick="@(()=>Init(false))">Create Receiver</button>
+   </div>
+ *@
+<div>
+    <textarea style="width: 600px; word-wrap: break-word; white-space: normal;" @bind=@incoming></textarea>
+    <button @onclick=@Submit>Pack</button>
+</div>
+<pre style="width: 600px; word-wrap: break-word; white-space: normal;">@((MarkupString)outgoing)</pre>
+
+@code {
+    [Inject] BlazorJSRuntime JS { get; set; }
+    string outgoing = "";
+    string incoming = "";
+
+    void Submit()
+    {
+        using var uint8Array = MessagePack.Encode(incoming);
+        // the uint8Array could now be sent over WebRTC or saved to file
+        // for this demo we are jsut converting to hex and displaying it
+        var bytes = uint8Array.ReadBytes();
+        outgoing = Convert.ToHexString(bytes);
+    }
+
+}
+
