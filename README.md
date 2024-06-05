@@ -1,5 +1,5 @@
 # SpawnDev.BlazorJS.MessagePack
-MessagePack binary Javascript encoder and decoder.
+MessagePack binary Javascript encoder and decoder for Blazor WebAssembly.
 
 [![NuGet version](https://badge.fury.io/nu/SpawnDev.BlazorJS.MessagePack.svg?label=SpawnDev.BlazorJS.MessagePack)](https://www.nuget.org/packages/SpawnDev.BlazorJS.MessagePack)
 
