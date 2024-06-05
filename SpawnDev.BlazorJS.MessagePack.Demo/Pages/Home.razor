@@ -7,13 +7,7 @@
 <p>
     This demo converts text to binary using MessagePack Javascript library and SpawnDev.BlazorJS.MessagePack
 </p>
-@* 
-   <div>
-       Role: @peerRole<br />
-       <button disabled="@(peer != null)" class="btn btn-primary" @onclick="@(()=>Init(true))">Create Initiator</button>
-       <button disabled="@(peer != null)" class="btn btn-primary" @onclick="@(()=>Init(false))">Create Receiver</button>
-   </div>
- *@
+
 <div>
     <textarea style="width: 600px; word-wrap: break-word; white-space: normal;" @bind=@incoming></textarea>
     <button @onclick=@Submit>Pack</button>
