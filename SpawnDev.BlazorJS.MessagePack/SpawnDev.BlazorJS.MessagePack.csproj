@@ -11,7 +11,7 @@
 		<DebugType>Embedded</DebugType>
 		<Title>SpawnDev.BlazorJS.MessagePack</Title>
 		<Authors>LostBeard</Authors>
-		<Description>MessagePack for Blazor WebAssembly</Description>
+		<Description>MessagePack binary Javascript encoder and decoder for Blazor WebAssembly</Description>
 		<PackageProjectUrl>https://github.com/LostBeard/SpawnDev.BlazorJS.MessagePack</PackageProjectUrl>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
