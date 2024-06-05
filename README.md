@@ -43,9 +43,8 @@ await builder.Build().BlazorJSRunAsync();
 
 
 Example Home.razor  
-```cs
+```html
 @page "/"
-@using SpawnDev.BlazorJS.JSObjects
 
 <PageTitle>SpawnDev.BlazorJS.MessagePack</PageTitle>
 
@@ -54,7 +53,6 @@ Example Home.razor
 <p>
     This demo converts text to binary using MessagePack Javascript library and SpawnDev.BlazorJS.MessagePack
 </p>
-
 <div>
     <textarea style="width: 600px; word-wrap: break-word; white-space: normal;" @bind=@incoming></textarea>
     <button @onclick=@Submit>Pack</button>
@@ -65,22 +63,32 @@ Example Home.razor
 <div>
     <pre style="width: 600px; word-wrap: break-word; white-space: normal;">@((MarkupString)readback)</pre>
 </div>
+```
 
-@code {
-    string outgoing = "";
-    string incoming = "";
-    string readback = "";
+Example Home.razor.cs
+```cs
+using SpawnDev.BlazorJS.JSObjects;
 
-    void Submit()
+namespace SpawnDev.BlazorJS.MessagePack.Demo.Pages
+{
+    public partial class Home
     {
-        // encode using MessagePack to a Uint8Array
-        using Uint8Array uint8Array = MessagePack.Encode(incoming);
-        // the Uint8Array could now be sent over WebRTC, saved to file, etc.
-        // for this demo we are converting to hex and displaying it
-        var bytes = uint8Array.ReadBytes();
-        outgoing = Convert.ToHexString(bytes);
-        // demo decode
-        readback = MessagePack.Decode<string>(uint8Array);
+        string outgoing = "";
+        string incoming = "";
+        string readback = "";
+
+        void Submit()
+        {
+            // encode using MessagePack to a Uint8Array
+            using Uint8Array uint8Array = MessagePack.Encode(incoming);
+            // the Uint8Array could now be sent over WebRTC, saved to file, etc.
+            // for this demo we are converting to hex and displaying it
+            var bytes = uint8Array.ReadBytes();
+            outgoing = Convert.ToHexString(bytes);
+            // demo decode
+            readback = MessagePack.Decode<string>(uint8Array);
+        }
     }
 }
+
 ```
