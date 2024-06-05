@@ -17,7 +17,7 @@ Add the Nuget package `SpawnDev.BlazorJS.MessagePack` to your project using your
 nuget install SpawnDev.BlazorJS.MessagePack
 ```
 
-Modify the Blazor WASM `Program.cs` to initialize SpawnDev.BlazorJS for Javascript interop.  
+Modify the Blazor WebAssembly `Program.cs` to initialize SpawnDev.BlazorJS for Javascript interop.  
 Example Program.cs   
 ```cs
 using Microsoft.AspNetCore.Components.Web;
@@ -40,7 +40,6 @@ await MessagePack.Init();
 // Run app using BlazorJSRunAsync
 await builder.Build().BlazorJSRunAsync();
 ```
-
 
 Example Home.razor  
 ```html
