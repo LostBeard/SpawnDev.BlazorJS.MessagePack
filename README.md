@@ -13,8 +13,8 @@ MessagePack binary Javascript encoder and decoder for Blazor WebAssembly.
 ### Getting started
 
 Add the Nuget package `SpawnDev.BlazorJS.MessagePack` to your project using your package manager of choice.  
-```nuget
-nuget install SpawnDev.BlazorJS.MessagePack
+```dotnet
+dotnet add package SpawnDev.BlazorJS.MessagePack
 ```
 
 Modify the Blazor WebAssembly `Program.cs` to initialize SpawnDev.BlazorJS for Javascript interop.  
