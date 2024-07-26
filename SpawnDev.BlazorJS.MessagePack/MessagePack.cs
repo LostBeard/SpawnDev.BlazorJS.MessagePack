@@ -26,6 +26,12 @@ namespace SpawnDev.BlazorJS.MessagePack
         /// <returns></returns>
         public static Uint8Array Encode(object data) => JS.Call<Uint8Array>("MessagePack.encode", data);
         /// <summary>
+        /// It encodes data into a single MessagePack-encoded object, and returns a byte array as Uint8Array. It throws errors if data is, or includes, a non-serializable object such as a function or a symbol.
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        public static byte[] EncodeToBytes(object data) => JS.Call<Uint8Array>("MessagePack.encode", data).Using(o => o.ReadBytes());
+        /// <summary>
         /// It decodes buffer that includes a MessagePack-encoded object, and returns the decoded object typed T.
         /// </summary>
         /// <typeparam name="T"></typeparam>
