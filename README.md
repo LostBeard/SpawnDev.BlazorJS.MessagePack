@@ -68,6 +68,7 @@ Example Home.razor
 Example Home.razor.cs
 ```cs
 using SpawnDev.BlazorJS.JSObjects;
+using SpawnDev.BlazorJS.MessagePack;
 
 namespace SpawnDev.BlazorJS.MessagePack.Demo.Pages
 {
@@ -80,13 +81,13 @@ namespace SpawnDev.BlazorJS.MessagePack.Demo.Pages
         void Submit()
         {
             // encode to a Uint8Array using MessagePack
-            using Uint8Array uint8Array = MessagePack.Encode(incoming);
+            using Uint8Array uint8Array = MessagePackSerializer.Encode(incoming);
             // the Uint8Array could now be sent over WebRTC, saved to file, etc.
             // for this demo we are converting to hex and displaying it
             var bytes = uint8Array.ReadBytes();
             outgoing = Convert.ToHexString(bytes);
             // decode to a string using MessagePack
-            readback = MessagePack.Decode<string>(uint8Array);
+            readback = MessagePackSerializer.Decode<string>(uint8Array);
         }
     }
 }

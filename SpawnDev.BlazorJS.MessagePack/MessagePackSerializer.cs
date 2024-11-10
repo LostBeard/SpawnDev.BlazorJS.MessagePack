@@ -6,7 +6,7 @@ namespace SpawnDev.BlazorJS.MessagePack
     /// Wraps MessagePack Javascript library<br/>
     /// https://github.com/msgpack/msgpack-javascript
     /// </summary>
-    public static class MessagePack
+    public static class MessagePackSerializer
     {
         static BlazorJSRuntime JS => BlazorJSRuntime.JS;
         static Task? _Init = null;
