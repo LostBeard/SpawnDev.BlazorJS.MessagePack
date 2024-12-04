@@ -11,7 +11,8 @@ namespace SpawnDev.BlazorJS.MessagePack
         static BlazorJSRuntime JS => BlazorJSRuntime.JS;
         static Task? _Init = null;
         /// <summary>
-        /// Load the SimplePeer Javascript library
+        /// Load the SimplePeer Javascript library<br/>
+        /// Do not use this if loading msgpack.min.js in the index.html
         /// </summary>
         /// <returns>Returns when the library has been loaded</returns>
         public static Task Init(string? libPath = null)
