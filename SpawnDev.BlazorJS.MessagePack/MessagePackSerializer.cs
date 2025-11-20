@@ -4,10 +4,15 @@ namespace SpawnDev.BlazorJS.MessagePack
 {
     /// <summary>
     /// Wraps MessagePack Javascript library<br/>
+    /// If added as a service, the MessagePack library will be loaded before any pages are created.
     /// https://github.com/msgpack/msgpack-javascript
     /// </summary>
-    public static class MessagePackSerializer
+    public class MessagePackSerializer : IAsyncBackgroundService
     {
+        /// <summary>
+        /// Returns when the library has been loaded
+        /// </summary>
+        public Task Ready => _Init ??= Init();
         static BlazorJSRuntime JS => BlazorJSRuntime.JS;
         static Task? _Init = null;
         /// <summary>
@@ -17,7 +22,7 @@ namespace SpawnDev.BlazorJS.MessagePack
         /// <returns>Returns when the library has been loaded</returns>
         public static Task Init(string? libPath = null)
         {
-            _Init ??= JS.LoadScript(libPath ?? "_content/SpawnDev.BlazorJS.MessagePack/msgpack.min.js", nameof(MessagePack));
+            _Init ??= JS.LoadScript(libPath ?? "_content/SpawnDev.BlazorJS.MessagePack/msgpack-3.1.2.min.js", nameof(MessagePack));
             return _Init;
         }
         /// <summary>
