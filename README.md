@@ -5,7 +5,7 @@ MessagePack binary Javascript encoder and decoder for Blazor WebAssembly.
 
 **SpawnDev.BlazorJS.MessagePack** brings the amazing [MessagePack](https://github.com/msgpack/msgpack-javascript) library to Blazor WebAssembly.
 
-**SpawnDev.BlazorJS.MessagePack** uses [SpawnDev.BlazorJS](https://github.com/LostBeard/SpawnDev.BlazorJS) for Javascript interop allowing strongly typed, full usage of the [MessagePack](https://github.com/msgpack/msgpack-javascript) Javascript library. Voice, video and data channels are all fully supported in Blazor WebAssembly. The **SpawnDev.BlazorJS.MessagePack** API is a strongly typed version of the API found at the [MessagePack](https://github.com/msgpack/msgpack-javascript) repo. 
+**SpawnDev.BlazorJS.MessagePack** uses [SpawnDev.BlazorJS](https://github.com/LostBeard/SpawnDev.BlazorJS) for Javascript interop allowing strongly typed, full usage of the [MessagePack](https://github.com/msgpack/msgpack-javascript) Javascript library (msgpack-javascript 3.1.2). The **SpawnDev.BlazorJS.MessagePack** API is a strongly typed version of the API found at the [MessagePack](https://github.com/msgpack/msgpack-javascript) repo. 
 
 ### Demo
 [Basic Demo](https://lostbeard.github.io/SpawnDev.BlazorJS.MessagePack/)
@@ -20,7 +20,7 @@ dotnet add package SpawnDev.BlazorJS.MessagePack
 **Add MessagePack Javascript Library**  
 Add to `index.html`  
 ```html
-<script src="_content/SpawnDev.BlazorJS.MessagePack/msgpack.min.js"></script>
+<script src="_content/SpawnDev.BlazorJS.MessagePack/msgpack-3.1.2.min.js"></script>
 ```
 
 Modify the Blazor WebAssembly `Program.cs` to initialize SpawnDev.BlazorJS for Javascript interop.  
